@@ -8,7 +8,7 @@ BINDIR = bin
 
 TARGET =$(BINDIR)/DemoCpp11
 
-SRCS = DemoCpp11.cpp smart_pointers.cpp
+SRCS = DemoCpp11.cpp smart_pointers.cpp type_support.cpp
 VPATH= $(SRCDIR)
 
 all:	$(TARGET)
