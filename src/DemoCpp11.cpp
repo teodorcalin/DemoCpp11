@@ -11,6 +11,7 @@
 #include "smart_pointers.h"
 #include "type_support.h"
 #include "range_based_loops.h"
+#include "initialization.h"
 
 using namespace std;
 
@@ -20,7 +21,8 @@ int main(void)
 	{
 		//demo_smart_pointers();
 		//demo_type_support();
-		demo_range_based_loops();
+		//demo_range_based_loops();
+		demo_initialization();
 	} catch(...){
 		cerr << "Something bad happened." << endl;
 		return EXIT_FAILURE;

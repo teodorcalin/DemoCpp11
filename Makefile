@@ -11,7 +11,8 @@ TARGET =$(BINDIR)/DemoCpp11
 SRCS = DemoCpp11.cpp \
 smart_pointers.cpp \
 type_support.cpp \
-range_based_loops.cpp
+range_based_loops.cpp \
+initialization.cpp
 
 VPATH= $(SRCDIR)
 
