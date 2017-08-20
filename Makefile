@@ -12,7 +12,8 @@ SRCS = DemoCpp11.cpp \
 smart_pointers.cpp \
 type_support.cpp \
 range_based_loops.cpp \
-initialization.cpp
+initialization.cpp \
+pitfalls.cpp
 
 VPATH= $(SRCDIR)
 

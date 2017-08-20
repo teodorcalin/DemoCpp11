@@ -12,6 +12,7 @@
 #include "type_support.h"
 #include "range_based_loops.h"
 #include "initialization.h"
+#include "pitfalls.h"
 
 using namespace std;
 
@@ -22,7 +23,8 @@ int main(void)
 		//demo_smart_pointers();
 		//demo_type_support();
 		//demo_range_based_loops();
-		demo_initialization();
+		//demo_initialization();
+        (void)demo_pitfalls();
 	} catch(...){
 		cerr << "Something bad happened." << endl;
 		return EXIT_FAILURE;
