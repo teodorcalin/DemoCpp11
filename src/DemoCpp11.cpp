@@ -13,6 +13,8 @@
 #include "range_based_loops.h"
 #include "initialization.h"
 #include "pitfalls.h"
+#include "default_and_deleted_functions.h"
+#include "lambdas.h"
 
 using namespace std;
 
@@ -24,7 +26,9 @@ int main(void)
 		//demo_type_support();
 		//demo_range_based_loops();
 		//demo_initialization();
-        (void)demo_pitfalls();
+        //(void)demo_pitfalls();
+		//demo_default_and_deleted_functions();
+		demo_lambdas();
 	} catch(...){
 		cerr << "Something bad happened." << endl;
 		return EXIT_FAILURE;

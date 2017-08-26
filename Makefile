@@ -13,6 +13,8 @@ smart_pointers.cpp \
 type_support.cpp \
 range_based_loops.cpp \
 initialization.cpp \
+default_and_deleted_functions.cpp \
+lambdas.cpp \
 pitfalls.cpp
 
 VPATH= $(SRCDIR)
