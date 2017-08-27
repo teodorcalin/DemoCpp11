@@ -15,7 +15,8 @@ range_based_loops.cpp \
 initialization.cpp \
 default_and_deleted_functions.cpp \
 lambdas.cpp \
-pitfalls.cpp
+pitfalls.cpp \
+casts.cpp
 
 VPATH= $(SRCDIR)
 

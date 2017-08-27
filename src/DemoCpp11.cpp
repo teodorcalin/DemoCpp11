@@ -15,6 +15,7 @@
 #include "pitfalls.h"
 #include "default_and_deleted_functions.h"
 #include "lambdas.h"
+#include "casts.h"
 
 using namespace std;
 
@@ -28,7 +29,9 @@ int main(void)
 		//demo_initialization();
         //(void)demo_pitfalls();
 		//demo_default_and_deleted_functions();
+		//demo_casts();
 		demo_lambdas();
+
 	} catch(...){
 		cerr << "Something bad happened." << endl;
 		return EXIT_FAILURE;
