@@ -16,7 +16,8 @@ initialization.cpp \
 default_and_deleted_functions.cpp \
 lambdas.cpp \
 pitfalls.cpp \
-casts.cpp
+casts.cpp \
+rvalues.cpp
 
 VPATH= $(SRCDIR)
 

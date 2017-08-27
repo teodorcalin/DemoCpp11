@@ -16,6 +16,7 @@
 #include "default_and_deleted_functions.h"
 #include "lambdas.h"
 #include "casts.h"
+#include "rvalues.h"
 
 using namespace std;
 
@@ -30,7 +31,8 @@ int main(void)
         //(void)demo_pitfalls();
 		//demo_default_and_deleted_functions();
 		//demo_casts();
-		demo_lambdas();
+		//demo_lambdas();
+		demo_rvalues();
 
 	} catch(...){
 		cerr << "Something bad happened." << endl;
