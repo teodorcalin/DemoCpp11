@@ -34,7 +34,7 @@ int main(void)
     try
     {
         char c;
-        for(auto const& f : demos)
+        for(auto const& f : {demo_rvalues})
         {
             f();
             cout << "======= Press any to continue, q to end =======" << endl;
