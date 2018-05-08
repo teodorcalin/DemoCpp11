@@ -80,7 +80,7 @@ void processing(string a, string b, bool flag = true)
 class Shape // an abstract class
 {
 public:
-	virtual ~Shape() {}
+    virtual ~Shape() {}
     Shape() { init(); }
 private:
     void init() { reset(); }
@@ -97,16 +97,20 @@ private:
 };
 
 
-int demo_pitfalls()
+void demo_pitfalls()
 {
+    cout << endl << "*************** Pitfalls *****************" << endl;
+
     // Uninitialized value incremented => no compiler warning
-    // The compiler will warn 'Wuninitialized' only if nX is used in this same scope
+    // The compiler will warn 'Wuninitialized' only if variable is used 
+    // in this same scope where it is defined
     int nX;
     increment(nX);
 
     // Integer division => no compiler warning
     int num = 7, den = 2;
     int fraction = num/den;
+    (void) fraction;
 
     // Assignment used in place of equality operator => no compiler warning
     int nY = -1;
@@ -115,7 +119,7 @@ int demo_pitfalls()
         nY += 10;
     else
         nY += 100;
-    
+
     // Automated conversion from signed to unsigned => no compiler warning
     // int constant is promoted to unsigned int; result is unsigned int
     cout << "Value should be -5 : " << 10 - 15u << endl;
@@ -184,6 +188,4 @@ int demo_pitfalls()
     // list<int>::iterator it = find(lSource.begin(), lTarget.end(), 7);
     // if(it != lSource.end())
     //    lTarget.push_back(*it);
-
-    return fraction;
 }

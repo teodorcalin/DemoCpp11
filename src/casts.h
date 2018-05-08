@@ -1,14 +1,8 @@
-/*
- * casts.h
- *
- *  Created on: Aug 27, 2017
- *      Author: teodor
- */
-
 #ifndef SRC_CASTS_H_
 #define SRC_CASTS_H_
 
 
+/// Demonstration code for the use of C++ type cast operators
 void demo_casts();
 
 

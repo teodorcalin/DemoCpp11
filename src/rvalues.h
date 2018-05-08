@@ -1,15 +1,9 @@
-/*
- * rvalues.h
- *
- *  Created on: Aug 27, 2017
- *      Author: teodor
- */
+#ifndef _RVALUES_H_
+#define _RVALUES_H_
 
-#ifndef SRC_RVALUES_H_
-#define SRC_RVALUES_H_
-
-
+/// R-values vs L-values and R-value references in modern C++
+/// &&, std::move
 void demo_rvalues();
 
 
-#endif /* SRC_RVALUES_H_ */
+#endif /* _RVALUES_H_ */

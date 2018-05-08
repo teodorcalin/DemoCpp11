@@ -23,13 +23,13 @@ VPATH= $(SRCDIR)
 
 all:	$(TARGET)
 
-$(OBJDIR)/%.o : %.cpp $(OBJDIR)
+$(OBJDIR)/%.o : %.cpp | $(OBJDIR)
 	$(CXX) -c $(CXXFLAGS) $< -o $@
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
-$(TARGET):	$(OBJS) $(BINDIR)
+$(TARGET):	$(OBJS) | $(BINDIR)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 $(BINDIR):
 	mkdir -p $(BINDIR)

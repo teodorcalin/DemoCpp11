@@ -1,15 +1,9 @@
-/*
- * pitfalls.h
- *
- *  Created on: Aug 15, 2017
- *      Author: teodor
- */
-
-#ifndef PITFALLS_H_
-#define PITFALLS_H_
+#ifndef _PITFALLS_H_
+#define _PITFALLS_H_
 
 
-int demo_pitfalls();
+/// A number of ways to shoot yourself in the foot in C++, despite the compiler
+void demo_pitfalls();
 
 
-#endif /* PITFALLS_H_ */
+#endif /* _PITFALLS_H_ */

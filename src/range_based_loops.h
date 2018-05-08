@@ -1,15 +1,10 @@
-/*
- * range_based_loops.h
- *
- *  Created on: Jul 29, 2017
- *      Author: teodor
- */
-
-#ifndef SRC_RANGE_BASED_LOOPS_H_
-#define SRC_RANGE_BASED_LOOPS_H_
+#ifndef _RANGE_BASED_LOOPS_H_
+#define _RANGE_BASED_LOOPS_H_
 
 
+/// Demo of use of range-based for loops in modern C++
+/// for(elt : container)
 void demo_range_based_loops();
 
 
-#endif /* SRC_RANGE_BASED_LOOPS_H_ */
+#endif /* _RANGE_BASED_LOOPS_H_ */

@@ -1,15 +1,10 @@
-/*
- * initialization.h
- *
- *  Created on: Jul 30, 2017
- *      Author: teodor
- */
-
-#ifndef INITIALIZATION_H_
-#define INITIALIZATION_H_
+#ifndef _INITIALIZATION_H_
+#define _INITIALIZATION_H_
 
 
+/// Demo of modern C++ initialization syntax and initializer lists
+/// {}, {{}}
 void demo_initialization();
 
 
-#endif /* INITIALIZATION_H_ */
+#endif /* _INITIALIZATION_H_ */

@@ -1,14 +1,8 @@
-/*
- * lambdas.h
- *
- *  Created on: Aug 20, 2017
- *      Author: teodor
- */
-
 #ifndef _LAMBDAS_H_
 #define _LAMBDAS_H_
 
-
+// Use of lambdas and function objects in modern C++
+// [](), std::function
 void demo_lambdas();
 
 
