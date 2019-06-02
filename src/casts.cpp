@@ -229,7 +229,7 @@ void demo_casts()
     // Misuse 1 - assumed downcast
     // You assume D is derived from B1 and try to downcast
     // and the compiler lets you do it, although D is not related to B1
-    B1* p2B1;
+    B1* p2B1 = nullptr;
     D* p2D = reinterpret_cast<D*>(p2B1);
     // In this case you should use static or dynamic cast, for type checking
     // D* p2D = static_cast<D*>(p2B); ///< This does not compile
