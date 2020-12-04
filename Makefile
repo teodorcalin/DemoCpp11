@@ -9,6 +9,7 @@ BINDIR = bin
 TARGET =$(BINDIR)/DemoCpp11
 
 SRCS = DemoCpp11.cpp \
+scoped_enum.cpp \
 smart_pointers.cpp \
 type_support.cpp \
 range_based_loops.cpp \
