@@ -2,6 +2,7 @@
 #include <cstdlib> // for EXIT_SUCCESS
 #include <functional> // for std::function
 #include <limits>
+#include "scoped_enum.h"
 #include "smart_pointers.h"
 #include "type_support.h"
 #include "range_based_loops.h"
@@ -16,8 +17,9 @@ using namespace std;
 
 typedef function<void()> DemoFunction;
 
-static const DemoFunction demos[] = 
+static const DemoFunction demos[] =
 {
+    demo_scoped_enum,
     demo_smart_pointers,
     demo_type_support,
     demo_range_based_loops,
