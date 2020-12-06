@@ -1,4 +1,5 @@
 #include <array>
+#include <cstdio> // for printf
 #include <cstdint> // for uint8_t, uint64_t etc.
 #include <type_traits> // for is_integral
 #include <bitset>
@@ -6,6 +7,10 @@
 
 using namespace std;
 
+// Create the bitmask for the K-th bit of the given value
+// Usage: int i=13; int bit4_mask = make_bitmask<4>(i);
+// Note: the value of the mask will be 2^K except for a 
+// signed integer, the value of mask of bit N-1 is -2^(N-1)
 template<size_t K, typename T>
 T make_bitmask(T int_variable)
 {
@@ -14,13 +19,38 @@ T make_bitmask(T int_variable)
     return T(1 << K);
 }
 
+// Create the bitset of the appropriate size from a given integer
+// Usage: int i = 13; auto bi = as_binary(i); // bi will be of type bitset<32>
 template<typename T>
-bitset<8*sizeof(T)> as_binary(T int_variable)
+bitset<8*sizeof(T)> as_binary(T int_value)
 {
     static_assert(is_integral<T>::value, 
         "binary representation: non-integer types not supported ");
-    return bitset<8*sizeof(T)>(int_variable);
+    return bitset<8*sizeof(T)>(int_value);
 }
+
+// C-style display base2 representation of an integer
+// Note: works for both signed and unsigned
+// Note: can be generalized to the other integer types
+void print_binary(unsigned char int_value)
+{
+    for(unsigned char i = 1 << (8*sizeof(unsigned char)-1); i > 0; i >>= 1)
+        (int_value & i) ? printf("1") : printf("0");
+}
+
+// C-style : keep only lowest set bit
+// Note this is based on 1's complement: -n = ~n + 1
+int lowest_set_bit(int int_value)
+{
+    return int_value & (-int_value);
+}
+
+// C-style : strip the lowest set bit
+int strip_lowest_set_bit(int int_value)
+{
+    return int_value & (int_value-1);
+}
+
 
 void demo_bit_manipulation()
 {
@@ -48,7 +78,9 @@ void demo_bit_manipulation()
     auto bit_mask = BIT0 | BIT3 | BIT6;
     // Display resulting mask as decimal and as base2
     cout << "Bit mask: " << bit_mask << " = 0b" << bitset<8>(bit_mask) << endl;
-
+    // Display as base2 using C-style
+    printf("C-style : 106 = 0b"); print_binary(106); printf("\n");
+    printf("C-style : -73 = 0b"); print_binary(-73); printf("\n");
     // Convert lower case to upper case - actually the AND mask just sets the 6th bit to zero
     char c1 = 'r';
     char lower_to_upper_mask = 0xDF; // 0b1101'1111
@@ -81,6 +113,7 @@ void demo_bit_manipulation()
     // cout << "8th bit mask for a char  : " << as_binary(make_bitmask<8>('r')) << endl;
 
     // **** C-style manipulations (integer types) ****
+    cout << endl << "*** C-style bit manipulation ***" << endl;
     cout << "Number        : " << +int_number << "\t= " << as_binary(int_number) << endl;
     int_number |= BIT2;
     cout << "Set bit 2     : " << +int_number << "\t= " << as_binary(int_number) << endl;
@@ -110,8 +143,7 @@ void demo_bit_manipulation()
         int_copy &= int_copy - 1;
     }
     cout << "Number of set bits            : " << bit_count << endl;
-    // Note: the -1 technique works for signed and unsigned and is more portable that 
-    // int_type x = ~int_type(0)
+
     unsigned int u1 = 256u;
     unsigned int is_power_of_2 = u1 && !(u1 & (u1 - 1));
     cout << u1 << " is a power of two ?    : " << (is_power_of_2 ? "true" : "false") << endl;
@@ -128,8 +160,11 @@ void demo_bit_manipulation()
     cout << "Set all bits (unsigned short) : " << +s5 << "\t= " << as_binary(s5) << endl;
     int i4 = ~int(0);
     cout << "Set all bits (signed int)     : " << +i4 << "\t= " << as_binary(i4) << endl;
+    // Note: the -1 technique works for signed and unsigned and is more portable than
+    // int_type x = ~int_type(0)
 
     // **** C++-style manipulations (bitest) ****
+    cout << endl << "*** C++-style bit manipulation ***" << endl;
     cout << "Number        : " << number.to_ulong() << "\t= " << number << endl;
     number.set(2);
     cout << "Set bit 2     : " << number.to_ulong() << "\t= " << number << endl;
@@ -166,6 +201,7 @@ void demo_bit_manipulation()
     auto i6 = ~int(0);
     cout << "Set all bits (signed int)     : " << +i6 << "\t= " << as_binary(i6) << endl;
 
+    cout << endl << "*** Byte masks ***" << endl;
     // Mask for a single byte inside an int
     typedef bitset<8*sizeof(int)> int_bitmask;
     array<int_bitmask, sizeof(int)> BYTE_MASKS;
@@ -174,5 +210,12 @@ void demo_bit_manipulation()
         BYTE_MASKS[i] = int_bitmask(0xff << i*8);
         cout << "Byte " << i << " : " << BYTE_MASKS[i] << endl;
     }
-    
+
+    cout << endl << "*** C-style bit hacks ***" << endl;
+    char nb=84;
+    cout << "Number               : " << +nb << " = " << as_binary(nb) << endl;
+    char lowest_bit_only = lowest_set_bit(nb);
+    cout << "Keep only lowest bit : " << +lowest_bit_only << " = " << as_binary(lowest_bit_only) << endl;
+    char lowest_bit_striped = strip_lowest_set_bit(nb);
+    cout << "Strip lowest bit     : " << +lowest_bit_striped << " = " << as_binary(lowest_bit_striped) << endl;
 }
