@@ -2,6 +2,7 @@
 #include <cstdlib> // for EXIT_SUCCESS
 #include <functional> // for std::function
 #include <limits>
+#include "constexpr.h"
 #include "bit_manipulation.h"
 #include "scoped_enum.h"
 #include "smart_pointers.h"
@@ -20,6 +21,7 @@ typedef function<void()> DemoFunction;
 
 static const DemoFunction demos[] =
 {
+    demo_constexpr,
     demo_bit_manipulation,
     demo_scoped_enum,
     demo_smart_pointers,

@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "*.tcc": "cpp",
+        "functional": "cpp",
+        "string_view": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "array": "cpp",
+        "cstring": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp"
     }
 }
